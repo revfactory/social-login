@@ -1,0 +1,11 @@
+<button mat-button routerLink="/">Home</button>
+<button mat-button [matMenuTriggerFor]="aboveMenu">Project</button>
+<mat-menu #aboveMenu="matMenu" yPosition="above">
+  <button mat-menu-item routerLink="/list">Projects</button>
+</mat-menu>
+
+<button *ngIf="!isLogged" mat-button routerLink="/login">Login</button>
+<span *ngIf="isLogged"><a>{{ userLogged?.name }}</a></span>
+<img *ngIf="isLogged" src="{{userLogged?.photoUrl}}" style="width: 50px;">
+<button *ngIf="isLogged" mat-button (click)="signOut()">Logout</button>
+
